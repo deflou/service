@@ -1,0 +1,21 @@
+{
+  "name": "deflou/service",
+  "description": "Service package for DeFlou",
+  "authors": [
+    {
+      "name": "DeFlou developer",
+      "email": "deflou.dev@gmail.com"
+    }
+  ],
+  "require": {
+    "deflou/service-config": "*",
+    "deflou/service-activities": "*",
+    "deflou/user": "*",
+    "deflou/describer": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "deflou\\": "src/"
+    }
+  }
+}
