@@ -1,6 +1,7 @@
 <?php
 namespace deflou\components\services;
 
+use deflou\interfaces\services\describers\IServiceDescriber;
 use deflou\interfaces\services\IServiceInstance;
 
 /**
@@ -15,6 +16,11 @@ abstract class ServiceInstanceAbstract implements IServiceInstance
      * @var mixed
      */
     protected $model = null;
+
+    /**
+     * @var IServiceDescriber
+     */
+    protected $describer = null;
 
     /**
      * ServiceInstanceAbstract constructor.
@@ -255,6 +261,26 @@ abstract class ServiceInstanceAbstract implements IServiceInstance
     public function setModel($model)
     {
         $this->model = $model;
+
+        return $this;
+    }
+
+    /**
+     * @return IServiceDescriber|null
+     */
+    public function getDescriber(): IServiceDescriber
+    {
+        return $this->describer;
+    }
+
+    /**
+     * @param IServiceDescriber $serviceDescriber
+     *
+     * @return $this
+     */
+    public function setDescriber(IServiceDescriber $serviceDescriber)
+    {
+        $this->describer = $serviceDescriber;
 
         return $this;
     }

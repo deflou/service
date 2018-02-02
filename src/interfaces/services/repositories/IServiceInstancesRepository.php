@@ -1,7 +1,9 @@
 <?php
 namespace deflou\interfaces\services\repositories;
 
+use deflou\interfaces\triggers\events\ITriggerEvent;
 use deflou\interfaces\services\IServiceInstance;
+use deflou\interfaces\triggers\ITrigger;
 
 /**
  * Interface IServiceInstancesRepository
@@ -48,4 +50,18 @@ interface IServiceInstancesRepository
      * @return bool
      */
     public function delete($serviceInstance): bool;
+
+    /**
+     * @param ITriggerEvent $triggerEvent
+     *
+     * @return IServiceInstance|null
+     */
+    public function identifyServiceByTriggerEvent(ITriggerEvent $triggerEvent): IServiceInstance;
+
+    /**
+     * @param ITrigger $trigger
+     *
+     * @return IServiceInstance
+     */
+    public function identifyDestinationServiceByTrigger(ITrigger $trigger);
 }

@@ -1,7 +1,12 @@
 <?php
 namespace deflou\interfaces\services;
 
+use deflou\interfaces\services\activities\IServiceAction;
+use deflou\interfaces\services\describers\IServiceDescriber;
+use deflou\interfaces\triggers\events\ITriggerEvent;
 use deflou\interfaces\ICanBeDescribed;
+use deflou\interfaces\services\activities\IServiceEvent;
+use deflou\interfaces\triggers\ITrigger;
 use deflou\interfaces\users\identities\IUserIdentity;
 
 /**
@@ -111,4 +116,35 @@ interface IServiceInstance extends ICanBeDescribed
      * @return $this
      */
     public function setCreated($timestamp);
+
+    /**
+     * @return IServiceResolver|null
+     */
+    public function getResolver();
+
+    /**
+     * @return IServiceDescriber|null
+     */
+    public function getDescriber(): IServiceDescriber;
+
+    /**
+     * @param IServiceDescriber $serviceDescriber
+     *
+     * @return $this
+     */
+    public function setDescriber(IServiceDescriber $serviceDescriber);
+
+    /**
+     * @param ITriggerEvent $triggerEvent
+     *
+     * @return IServiceEvent|null
+     */
+    public function identifyServiceEventByTriggerEvent(ITriggerEvent $triggerEvent): IServiceEvent;
+
+    /**
+     * @param ITrigger $trigger
+     *
+     * @return IServiceAction|null
+     */
+    public function identifyServiceActionByTrigger(ITrigger $trigger): IServiceAction;
 }
