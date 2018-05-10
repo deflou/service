@@ -11,7 +11,7 @@
     "deflou/service-config": "*",
     "deflou/service-activities": "*",
     "deflou/user": "*",
-    "deflou/describer": "*"
+    "deflou/service-describer": "*"
   },
   "autoload": {
     "psr-4": {
