@@ -199,7 +199,7 @@ abstract class ServiceInstanceAbstract implements IServiceInstance
     {
         $created = $this->getAttribute(static::FIELD__CREATED);
 
-        return $format ? date($format, $created) : new \DateTime($created);
+        return $format ? date($format, $created) : new \DateTime('@' . $created);
     }
 
     /**
