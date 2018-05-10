@@ -17,7 +17,8 @@ return [
             'title' => 'ExRegistry Instances',
             'description' => 'Example Instances Registry',
             'base_url' => '/api/registry/example_instances/',
-            'type' => 'instances'
+            'type' => 'instances',
+            'created' => time()
         ]
     ]
 ];
