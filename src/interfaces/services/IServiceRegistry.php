@@ -13,6 +13,19 @@ interface IServiceRegistry extends ICanBeDescribed
 {
     const FIELD__CREATED = 'created';
     const FIELD__BASE_URL = 'base_url';
+    const FIELD__TYPE = 'type';
+
+    /**
+     * @return string
+     */
+    public function getType(): string;
+
+    /**
+     * @param string $type
+     *
+     * @return IServiceRegistry
+     */
+    public function setType($type);
 
     /**
      * @param string $format

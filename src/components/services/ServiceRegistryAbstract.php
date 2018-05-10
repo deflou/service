@@ -46,6 +46,24 @@ abstract class ServiceRegistryAbstract implements IServiceRegistry
     /**
      * @return string
      */
+    public function getType(): string
+    {
+        return $this->getAttribute(static::FIELD__TYPE);
+    }
+
+    /**
+     * @param string $type
+     *
+     * @return ServiceRegistryAbstract
+     */
+    public function setType($type)
+    {
+        return $this->setAttribute(static::FIELD__TYPE, $type);
+    }
+
+    /**
+     * @return string
+     */
     public function getTitle(): string
     {
         return $this->getAttribute(static::TITLE);
@@ -120,11 +138,19 @@ abstract class ServiceRegistryAbstract implements IServiceRegistry
     }
 
     /**
-     * @return string
+     * @return mixed
      */
     public function describe()
     {
-        return $this->getBaseUrl();
+        return [
+            static::NAME => $this->getName(),
+            static::TITLE => $this->getTitle(),
+            static::DESCRIPTION => $this->getDescription(),
+
+            static::FIELD__TYPE => $this->getType(),
+            static::FIELD__BASE_URL => $this->getBaseUrl(),
+            static::FIELD__CREATED => $this->getCreated()
+        ];
     }
 
     /**

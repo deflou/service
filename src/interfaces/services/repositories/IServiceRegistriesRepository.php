@@ -29,23 +29,23 @@ interface IServiceRegistriesRepository
     public function all();
 
     /**
-     * @param IServiceRegistry $serviceInstance
+     * @param IServiceRegistry $serviceRegistry
      *
      * @return bool
      */
-    public function create($serviceInstance): bool;
+    public function create($serviceRegistry): bool;
 
     /**
-     * @param IServiceRegistry $serviceInstance
+     * @param IServiceRegistry $serviceRegistry
      *
      * @return bool
      */
-    public function update($serviceInstance);
+    public function update($serviceRegistry);
 
     /**
-     * @param IServiceRegistry $serviceInstance
+     * @param IServiceRegistry $serviceRegistry
      *
      * @return bool
      */
-    public function delete($serviceInstance): bool;
+    public function delete($serviceRegistry): bool;
 }
